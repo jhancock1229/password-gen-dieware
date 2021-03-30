@@ -25,7 +25,7 @@ def generate_word_number():
     w = [0]*5
     return int("".join(map(str, [secrets.choice(die) for i in w])))
 
-def generate_die_words(num_words=5):
+def generate_die_words(num_words=10):
     return [generate_word_number() for _ in range(num_words)]
 
 def generate_password():
@@ -33,7 +33,7 @@ def generate_password():
 
 def main():
     generate_dictionary("dieware_list.txt")
-    return generate_password()
+    return " ".join(generate_password())
 
 if __name__ == "__main__":
     x = main()
