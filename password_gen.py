@@ -15,23 +15,23 @@ die = [1,2,3,4,5,6]
 d = dict()
 die_roll = secrets.choice(die)
 
-def generate_dictionary(txt_file):
+def generate_dictionary(txt_file)->dict:
     with open(txt_file) as f:
         for line in f:
             (key, val) = line.split()
             d[int(key)] = val
 
-def generate_word_number():
+def generate_word_number()->int:
     w = [0]*5
     return int("".join(map(str, [secrets.choice(die) for i in w])))
 
-def generate_die_words(num_words=10):
+def generate_die_words(num_words=10)->list:
     return [generate_word_number() for _ in range(num_words)]
 
-def generate_password():
+def generate_password()->list:
     return [d[x] for x in generate_die_words()]
 
-def main():
+def main()->str:
     generate_dictionary("dieware_list.txt")
     return " ".join(generate_password())
 
